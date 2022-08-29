@@ -324,7 +324,7 @@ button:focus {
       align-self: center;
       text-align: left; }
       .home_banner_area .banner_inner .banner_content .media .d-flex {
-        padding-right: 125px; }
+        padding-right: 125px;}
       .home_banner_area .banner_inner .banner_content .media .media-body {
         vertical-align: middle;
         align-self: center; }
@@ -2998,6 +2998,7 @@ h6 {
   .copy_right_text p a {
     color: #766dff; }
 
+/*Wth is this dumb 
 /* End Footer Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
