@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MechaBot, a self-docking AMR · Kumar Utkarsh</title>
+<meta name="description" content="A differential-drive ROS 2 robot that maps, localises, patrols and docks itself on real hardware. The reference robot of AMR Mastery.">
+<link rel="canonical" href="https://curious-utkarsh.github.io/projects/mechabot/">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MechaBot, a self-docking AMR · Kumar Utkarsh">
+<meta property="og:description" content="A differential-drive ROS 2 robot that maps, localises, patrols and docks itself on real hardware. The reference robot of AMR Mastery.">
+<meta property="og:url" content="https://curious-utkarsh.github.io/projects/mechabot/">
+<meta property="og:image" content="https://curious-utkarsh.github.io/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../../">Kumar Utkarsh<span>Robotics · ROS 2</span></a>
+    <ul id="menu">
+      <li><a href="../../#story">Story</a></li>
+      <li><a href="../../#work">Work</a></li>
+      <li><a href="../../#research">Research</a></li>
+      <li><a href="../../#teaching">Teaching</a></li>
+      <li><a href="../../#learners">Learners</a></li>
+      <li><a href="../../#voices">Voices</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <a class="btn" href="../../cv/" style="height:38px;padding:0 14px">CV</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../#work">Work</a> / MechaBot</nav>
+  <header class="case-head">
+    <h1>MechaBot, a self-docking AMR</h1>
+    <div class="meta"><span class="status st-hw">Hardware</span><span class="dates">Nov 2025 – Apr 2026</span><span class="dates">· Solo project</span></div>
+    <p class="lede">I designed MechaBot as the robot learners build in AMR Mastery, so every part of it had to be explainable. It maps, localises, patrols and docks itself on real hardware: Nav2 gets it close, a QR marker aligns it, and LiDAR tells it when to stop.</p>
+  </header>
+  <div class="case-grid">
+    <article class="case">
+      <button class="facade v" type="button" data-facade="rBTisGu6iEY" aria-label="Play video: Meet MechaBot"><img src="../../assets/img/mechabot-sq-800.webp" width="800" height="800" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">Meet MechaBot · on YouTube · Kumar Utkarsh</span></button>
+      <h2>What it does</h2>
+      <ul>
+        <li>Maps a room with slam_toolbox and localises with AMCL.</li>
+        <li>Navigates and patrols waypoints with Nav2.</li>
+        <li>Watches its battery, cancels navigation when it runs low, and returns to the dock.</li>
+        <li>Finds the dock with a camera and a QR marker, and stops on LiDAR about 15 cm away.</li>
+        <li>Docks and undocks on real hardware.</li>
+      </ul>
+      <h2>How it is built</h2>
+      <dl class="stack">
+        <dt>Hardware</dt><dd>Two-wheel differential drive, encoder DC gear motors, L298N driver, Raspberry Pi, ESP32, RPLiDAR, MPU6050 IMU, ultrasonic sensor, camera, 16×2 LCD, 3D-printed chassis designed in Fusion 360.</dd>
+        <dt>Firmware</dt><dd>ESP32 with a PID loop per wheel and interrupt-driven quadrature encoders.</dd>
+        <dt>ROS 2</dt><dd>A custom C++ ros2_control hardware interface (real and Gazebo), diff-drive controller, twist_mux, joystick teleoperation.</dd>
+        <dt>Navigation</dt><dd>Nav2 with the Smac 2D planner, Regulated Pure Pursuit, layered costmaps and a custom behaviour tree; a multi-threaded executor for docking.</dd>
+        <dt>Tooling</dt><dd>Gazebo worlds including a QR maze built in Blender; Docker packaging.</dd>
+      </dl>
+      <div class="media-row">
+        <figure><div class="ph"><img src="../../assets/img/mechabot-cad-480.webp" width="480" height="271" loading="lazy" alt="MechaBot CAD model"></div><figcaption>The CAD model</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/mechabot-build1-698.webp" width="698" height="345" loading="lazy" alt="MechaBot chassis with LiDAR and Raspberry Pi during assembly"></div><figcaption>Coming together, Apr 2026</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/mechabot-build3-698.webp" width="698" height="380" loading="lazy" alt="Inside MechaBot: Raspberry Pi, LiDAR and wiring"></div><figcaption>Inside the robot</figcaption></figure>
+      </div>
+      <h2>The hard part</h2>
+      <p>Docking. Nav2 alone gets the robot near the dock but not reliably onto it, so docking runs in stages: Nav2 drives to a pre-dock pose, a proportional controller aligns on the QR marker from the camera, and the LiDAR decides when to stop.</p>
+      <blockquote class="pull" style="margin-left:0">I didn't sit down and "learn SLAM" as a subject one weekend. I learned exactly the SLAM I needed the day my robot couldn't reliably find its way back to its charging dock.<cite>From my post on the MechaMind Labs blog</cite></blockquote>
+      <h2>Status and limits</h2>
+      <div class="limits"><ul>
+        <li>Docking and undocking work on real hardware and succeed most of the time. I haven't published a measured success rate.</li>
+        <li>The battery publisher that triggers return-to-dock is not in the public repository.</li>
+      </ul></div>
+      <h2>Learners who rebuilt it</h2>
+      <p>Naman Arora built the full autonomy stack in simulation; Dipanjan Bakshi and Dhrutidhara Behera built their own physical versions. Their posts are on the <a href="../../#learners">home page</a>.</p>
+    </article>
+    <aside><dl><dt>Status</dt><dd>Hardware</dd><dt>Dates</dt><dd>Announced 23 Nov 2025 · chassis Jan 2026 · software Feb – Mar 2026 · physical robot Apr 2026</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/MechaMind-Labs/AMR-Mastery" target="_blank" rel="noopener">AMR-Mastery</a></dd><dt>Build log</dt><dd><a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7416698018952982528/" target="_blank" rel="noopener">Introduced, Jan 2026</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7447948478909169665/" target="_blank" rel="noopener">Physical build</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7450153133218910208/" target="_blank" rel="noopener">Working robot</a> <a class="chip" href="https://www.youtube.com/playlist?list=PLdMuvhY3uTKvNg6r5yPQSBe_NIYhc0Hwn" target="_blank" rel="noopener">Cohort diary</a></dd><dt>Stack</dt><dd>ROS 2 · Nav2 · slam_toolbox · AMCL · ros2_control · ESP32 · Raspberry Pi · RPLiDAR · Docker</dd></dl></aside>
+  </div>
+  <div class="next-proj"><a href="../../#work">← All work</a><a href="../../projects/mobi/">Mobi →</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Kumar Utkarsh · Mumbai</span>
+    <span><a href="../../">Home</a> · <a href="mailto:kutkarsh706@gmail.com">kutkarsh706@gmail.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
