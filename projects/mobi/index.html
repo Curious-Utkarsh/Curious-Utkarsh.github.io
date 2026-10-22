@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobi, a home-service robot · Kumar Utkarsh</title>
+<meta name="description" content="A personal ROS 2 home-service robot: SLAM, Nav2, vision docking and voice commands on a real base with a torso. The arms were planned, not built.">
+<link rel="canonical" href="https://curious-utkarsh.github.io/projects/mobi/">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mobi, a home-service robot · Kumar Utkarsh">
+<meta property="og:description" content="A personal ROS 2 home-service robot: SLAM, Nav2, vision docking and voice commands on a real base with a torso. The arms were planned, not built.">
+<meta property="og:url" content="https://curious-utkarsh.github.io/projects/mobi/">
+<meta property="og:image" content="https://curious-utkarsh.github.io/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../../">Kumar Utkarsh<span>Robotics · ROS 2</span></a>
+    <ul id="menu">
+      <li><a href="../../#story">Story</a></li>
+      <li><a href="../../#work">Work</a></li>
+      <li><a href="../../#research">Research</a></li>
+      <li><a href="../../#teaching">Teaching</a></li>
+      <li><a href="../../#learners">Learners</a></li>
+      <li><a href="../../#voices">Voices</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <a class="btn" href="../../cv/" style="height:38px;padding:0 14px">CV</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../#work">Work</a> / Mobi</nav>
+  <header class="case-head">
+    <h1>Mobi, a home-service robot</h1>
+    <div class="meta"><span class="status st-hw">Hardware (base and torso)</span><span class="dates">Mar – Jul 2025</span><span class="dates">· Solo project</span></div>
+    <p class="lede">Mobi was meant to become a mobile manipulator for homes, hospitals and restaurants. The base and torso work on real hardware; the arms were never built. Most of what I know about encoders, odometry and costmaps on a real robot came from fixing it.</p>
+  </header>
+  <div class="case-grid">
+    <article class="case">
+      <button class="facade v" type="button" data-facade="Y7EMHcqw5RQ" aria-label="Play video: Mobi autonomous service robot"><img src="../../assets/img/mobi-torso-480.webp" width="480" height="853" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">Mobi · on YouTube · Kumar Utkarsh</span></button>
+      <h2>What it does</h2>
+      <ul>
+        <li>Maps and localises, and navigates with replanning and recovery behaviours.</li>
+        <li>Docks and undocks using vision (ArUco), IMU, LiDAR and an ultrasonic sensor.</li>
+        <li>Takes natural-language voice commands (dock, undock, follow, stop) through a ROS 2 agent node; "stop" safely interrupts any action.</li>
+        <li>Carries a torso on dual lead-screw linear rails, ready for arms.</li>
+      </ul>
+      <h2>How it is built</h2>
+      <dl class="stack">
+        <dt>Compute</dt><dd>Raspberry Pi 4B, with a Teensy 4.1 reading the encoders (33,200 counts per revolution).</dd>
+        <dt>Sensing</dt><dd>LiDAR, IMU, ultrasonic sensor; a 7-inch touchscreen on the robot for debugging without SSH.</dd>
+        <dt>Power</dt><dd>A 12 V 30 A supply with a 5 V 20 A buck converter for stable power during development.</dd>
+        <dt>Navigation</dt><dd>SLAM Toolbox; Nav2 with Smac Hybrid-A* and Regulated Pure Pursuit.</dd>
+        <dt>Tools</dt><dd>Robot Launcher, a PyQt5 and WebSockets app that starts the real robot or the simulation with one click.</dd>
+      </dl>
+      <div class="media-row">
+        <figure><div class="ph"><img src="../../assets/img/mobi-card-640.webp" width="640" height="480" loading="lazy" alt="Mobi's aluminium-extrusion base"></div><figcaption>The base, Jun 2025</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/mobi-electronics-480.webp" width="480" height="360" loading="lazy" alt="Mobi's electronics deck with LiDAR, Raspberry Pi and ultrasonic sensor"></div><figcaption>Electronics deck</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/mobi-torso-480.webp" width="480" height="853" loading="lazy" alt="Mobi with its tall torso on linear rails"></div><figcaption>Torso on linear rails, Jul 2025</figcaption></figure>
+      </div>
+      <h2>The hard part</h2>
+      <p><strong>Encoders.</strong> Odometry was unreliable. I isolated the encoder layer from the rest of the stack and found the ESP32 (240 MHz) couldn't keep up with 33,200-count encoders, so I moved encoder reading to a Teensy 4.1 (600 MHz), which handled them cleanly.</p>
+      <p><strong>A distorted SLAM map.</strong> I <a href="https://www.linkedin.com/feed/update/urn:li:activity:7313719472240869376/" target="_blank" rel="noopener">asked the community</a>, then fixed flipped encoder readings, halved the encoder count, corrected the LiDAR orientation in the URDF, and posted the fix.</p>
+      <h2>Status and limits</h2>
+      <div class="limits"><ul>
+        <li>On the real robot, costmaps didn't clear after obstacles moved. I disabled obstacle detection in the local controller to keep it moving and said so at the time: "Now it moves, but yeah — that's not a proper solution."</li>
+        <li>The arms were planned, not built. I didn't get all the way to the service robot I set out to make.</li>
+      </ul></div>
+      <h2>Build log</h2>
+      <p><a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7303284374957891584/" target="_blank" rel="noopener">Designing it in Fusion 360, Mar 2025</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7344359883107942400/" target="_blank" rel="noopener">Base redesign, Jun 2025</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7352925309186297858/" target="_blank" rel="noopener">Torso and Nav2, Jul 2025</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7355552667160530944/" target="_blank" rel="noopener">Voice agent, Jul 2025</a></p>
+    </article>
+    <aside><dl><dt>Status</dt><dd>Hardware (base and torso); arms not built</dd><dt>Dates</dt><dd>Mar – Jul 2025 · personal project</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/Curious-Utkarsh/mobi-service-robot" target="_blank" rel="noopener">mobi-service-robot</a></dd><dt>Videos</dt><dd><a class="chip" href="https://www.youtube.com/shorts/A8FcfQKHm_Q" target="_blank" rel="noopener">SLAM and navigation</a> <a class="chip" href="https://youtu.be/QhUhHbz_ZHU" target="_blank" rel="noopener">Robot Launcher</a> <a class="chip" href="https://www.youtube.com/playlist?list=PL4W0OgQKdPqm0IJ13ecF4k1LaRJ-A9qkA" target="_blank" rel="noopener">CAD to Gazebo series</a></dd><dt>Stack</dt><dd>ROS 2 · SLAM Toolbox · Nav2 · Raspberry Pi 4B · Teensy 4.1 · PyQt5</dd></dl></aside>
+  </div>
+  <div class="next-proj"><a href="../../#work">← All work</a><a href="../../projects/manipulation/">Manipulation in simulation →</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Kumar Utkarsh · Mumbai</span>
+    <span><a href="../../">Home</a> · <a href="mailto:kutkarsh706@gmail.com">kutkarsh706@gmail.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
