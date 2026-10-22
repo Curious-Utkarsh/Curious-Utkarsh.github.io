@@ -18,6 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
@@ -391,22 +392,22 @@
       </div>
       <div class="rows" style="margin-top:36px">
         <div class="row reveal">
-          <div><h4>High-rate vibration data acquisition</h4><div class="meta"><span class="dates">2025 · Teensy, ESP32, ESP32-S3</span></div></div>
+          <div><h3 class="h4">High-rate vibration data acquisition</h3><div class="meta"><span class="dates">2025 · Teensy, ESP32, ESP32-S3</span></div></div>
           <p>An IIS3DWB accelerometer and an MPU9250 gyroscope sampled at 25 kHz and streamed as binary frames without dropped samples. I built and compared four system designs, including a hardware ready/clear-to-send handshake between nodes.</p>
           <div class="chips"><a class="chip" href="https://github.com/Curious-Utkarsh/vibration-daq-teensy-esp32" target="_blank" rel="noopener">Code</a></div>
         </div>
         <div class="row reveal">
-          <div><h4>CNC machine digital twin</h4><div class="meta"><span class="dates">ESP-IDF · FreeRTOS</span></div></div>
+          <div><h3 class="h4">CNC machine digital twin</h3><div class="meta"><span class="dates">ESP-IDF · FreeRTOS</span></div></div>
           <p>The sensing and telemetry layer: seven sensors read concurrently by eight FreeRTOS tasks, a 0–100 machine health score, and a live dashboard. Below its design sample rates, and not deployed. No public code.</p>
           <div class="chips"><span class="status st-none">Code not public</span></div>
         </div>
         <div class="row reveal">
-          <div><h4>Single-channel EEG recorder</h4><div class="meta"><span class="dates">2026 · ESP32 at 250 Hz</span></div></div>
+          <div><h3 class="h4">Single-channel EEG recorder</h3><div class="meta"><span class="dates">2026 · ESP32 at 250 Hz</span></div></div>
           <p>A captive-portal recorder that needs no router or app, and a second firmware version written after a careful post-mortem of two bugs in the first.</p>
           <div class="chips"><a class="chip" href="https://github.com/Curious-Utkarsh/esp32-eeg-recorder" target="_blank" rel="noopener">Code</a></div>
         </div>
         <div class="row reveal">
-          <div><h4>Wearable telemetry chain</h4><div class="meta"><span class="dates">2026 · nRF52840, BLE, WebSockets</span></div></div>
+          <div><h3 class="h4">Wearable telemetry chain</h3><div class="meta"><span class="dates">2026 · nRF52840, BLE, WebSockets</span></div></div>
           <p>A body-worn sensor node streaming IMU, ECG, load-cell and SpO2 data across four hops to a live browser dashboard.</p>
           <div class="chips"><a class="chip" href="https://github.com/Curious-Utkarsh/wearable-ble-telemetry" target="_blank" rel="noopener">Code</a></div>
         </div>
