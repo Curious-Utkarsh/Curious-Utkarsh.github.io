@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manipulation in simulation · Kumar Utkarsh</title>
+<meta name="description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and gesture-controlled pick-and-place on a UR5.">
+<link rel="canonical" href="https://curious-utkarsh.github.io/projects/manipulation/">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manipulation in simulation · Kumar Utkarsh">
+<meta property="og:description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and gesture-controlled pick-and-place on a UR5.">
+<meta property="og:url" content="https://curious-utkarsh.github.io/projects/manipulation/">
+<meta property="og:image" content="https://curious-utkarsh.github.io/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../../">Kumar Utkarsh<span>Robotics · ROS 2</span></a>
+    <ul id="menu">
+      <li><a href="../../#story">Story</a></li>
+      <li><a href="../../#work">Work</a></li>
+      <li><a href="../../#research">Research</a></li>
+      <li><a href="../../#teaching">Teaching</a></li>
+      <li><a href="../../#learners">Learners</a></li>
+      <li><a href="../../#voices">Voices</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <a class="btn" href="../../cv/" style="height:38px;padding:0 14px">CV</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../#work">Work</a> / Manipulation</nav>
+  <header class="case-head">
+    <h1>Manipulation in simulation</h1>
+    <div class="meta"><span class="status st-sim">Simulation</span><span class="dates">Jan 2025 – May 2026</span><span class="dates">· Solo project</span></div>
+    <p class="lede">These are simulation projects where I worked on perception and planning for arms: colour sorting with a Franka Panda, two Pandas playing tic-tac-toe, a mobile manipulator, and gesture control of a UR5. The SCARA build is where I took this onto real hardware.</p>
+  </header>
+  <div class="case-grid">
+    <article class="case">
+      <h2>Two Franka Pandas playing tic-tac-toe</h2>
+      <p class="dates">Oct – Nov 2025</p>
+      <button class="facade h" type="button" data-facade="3YFORZAgRXA" aria-label="Play video: Multi-robot tic-tac-toe, human vs AI"><img src="../../assets/img/ttt-wide-638.webp" width="638" height="360" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">Human vs AI · on YouTube · Kumar Utkarsh</span></button>
+      <ul style="margin-top:16px">
+        <li>Board and cubes designed in Fusion 360; an overhead OpenCV camera reads the board.</li>
+        <li>MoveIt 2 plans both arms; an AI decision node plays Human vs AI and AI vs AI.</li>
+      </ul>
+      <p><a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7392438464690147328/" target="_blank" rel="noopener">Post, Nov 2025</a></p>
+
+      <h2>Franka Panda colour sorting</h2>
+      <p class="dates">Sep – Oct 2025 · taught as a masterclass on 5 Oct 2025</p>
+      <button class="facade h" type="button" data-facade="EM88ld4cCNk" aria-label="Play video: Vision-guided colour sorting with a Franka Panda"><img src="../../assets/img/franka-gazebo-640.webp" width="640" height="480" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">Colour sorting · on YouTube · MechaMind Labs</span></button>
+      <ul style="margin-top:16px">
+        <li>OpenCV HSV segmentation, tf2 transforms into the robot frame, MoveIt 2 through pymoveit2.</li>
+        <li>ros2_control trajectory and gripper controllers in Gazebo, with a Docker image for Humble and Jazzy.</li>
+        <li>My most-used open-source project. Viewers reproduced it on their own arms and in Isaac Sim.</li>
+        <li>Limit: a single RGB camera with a fixed pick height, not a depth camera.</li>
+      </ul>
+      <p><a class="chip" href="https://youtu.be/0N3B8FG0T1Y" target="_blank" rel="noopener">Workshop recording</a></p>
+
+      <h2>Aura, a mobile manipulator</h2>
+      <p class="dates">Dec 2024 – Feb 2025</p>
+      <ul>
+        <li>A differential-drive base in Gazebo with an arm that started as 4-DOF and ended as 5-DOF.</li>
+        <li>Nav2, MoveIt, frontier-based exploration, an ArUco docking station, colour detection and Alexa voice control.</li>
+      </ul>
+      <p><a class="chip" href="https://youtu.be/NHeu9y64Ovw" target="_blank" rel="noopener">Video</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7286963156571013120/" target="_blank" rel="noopener">Post, Jan 2025</a></p>
+
+      <h2>UR5 gesture pick-and-place</h2>
+      <p class="dates">May 2026</p>
+      <ul>
+        <li>MediaPipe hand tracking drives a UR5 with a Robotiq gripper in Gazebo.</li>
+        <li>Limit: it sends joint targets directly to the trajectory controller, with no MoveIt planning loop.</li>
+      </ul>
+      <h2>Next</h2>
+      <p>The <a href="../../projects/scara/">SCARA cell</a> is where this work moved onto real hardware.</p>
+    </article>
+    <aside><dl><dt>Status</dt><dd>Simulation (all four)</dd><dt>Dates</dt><dd>Jan 2025 – May 2026</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/MechaMind-Labs/franka-color-sorting-robot" target="_blank" rel="noopener">Franka sorting</a> <a class="chip" href="https://github.com/MechaMind-Labs/dual-franka-tic-tac-toe" target="_blank" rel="noopener">Tic-tac-toe</a> <a class="chip" href="https://github.com/Curious-Utkarsh/aura-mobile-manipulator" target="_blank" rel="noopener">Aura</a> <a class="chip" href="https://github.com/MechaMind-Labs/ur5-gesture-pick-and-place" target="_blank" rel="noopener">UR5 gesture</a></dd><dt>Stack</dt><dd>ROS 2 · MoveIt 2 · ros2_control · Gazebo · OpenCV · MediaPipe · Docker</dd></dl></aside>
+  </div>
+  <div class="next-proj"><a href="../../#work">← All work</a><a href="../../projects/scara/">SCARA →</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Kumar Utkarsh · Mumbai</span>
+    <span><a href="../../">Home</a> · <a href="mailto:kutkarsh706@gmail.com">kutkarsh706@gmail.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
