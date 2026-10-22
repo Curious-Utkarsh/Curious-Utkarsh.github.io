@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCARA conveyor pick-and-place · Kumar Utkarsh</title>
+<meta name="description" content="A 4-DOF SCARA arm with a camera, a conveyor and a Gazebo digital twin, built on ROS 2 and documented in 25 public parts.">
+<link rel="canonical" href="https://curious-utkarsh.github.io/projects/scara/">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCARA conveyor pick-and-place · Kumar Utkarsh">
+<meta property="og:description" content="A 4-DOF SCARA arm with a camera, a conveyor and a Gazebo digital twin, built on ROS 2 and documented in 25 public parts.">
+<meta property="og:url" content="https://curious-utkarsh.github.io/projects/scara/">
+<meta property="og:image" content="https://curious-utkarsh.github.io/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../../">Kumar Utkarsh<span>Robotics · ROS 2</span></a>
+    <ul id="menu">
+      <li><a href="../../#story">Story</a></li>
+      <li><a href="../../#work">Work</a></li>
+      <li><a href="../../#research">Research</a></li>
+      <li><a href="../../#teaching">Teaching</a></li>
+      <li><a href="../../#learners">Learners</a></li>
+      <li><a href="../../#voices">Voices</a></li>
+      <li><a href="../../#contact">Contact</a></li>
+    </ul>
+    <div class="nav-tools">
+      <a class="btn" href="../../cv/" style="height:38px;padding:0 14px">CV</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="icon-btn menu-btn" type="button" data-menu aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../#work">Work</a> / SCARA</nav>
+  <header class="case-head">
+    <h1>SCARA conveyor pick-and-place</h1>
+    <div class="meta"><span class="status st-twin">Hardware + digital twin</span><span class="dates">Jun – Aug 2026</span><span class="dates">· Solo project</span></div>
+    <p class="lede">I started from an open SCARA design and built everything else around it: the URDF from CAD, MoveIt 2 planning, a ros2_control hardware interface, a depth-camera pipeline in OpenCV, a conveyor, and a digital twin that runs next to the real arm. The final demo picks only the colour you ask for.</p>
+  </header>
+  <div class="case-grid">
+    <article class="case">
+      <button class="facade v" type="button" data-facade="4r_umrhB5zc" aria-label="Play video: SCARA final autonomous demo"><img src="../../assets/img/scara-twin-720.webp" width="720" height="900" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">Part 25: final autonomous demo · on YouTube · MechaMind Labs</span></button>
+      <h2>What it does</h2>
+      <ul>
+        <li>A 4-DOF SCARA arm watches a conveyor of randomly coloured boxes.</li>
+        <li>A fixed depth camera with OpenCV finds boxes by colour and depth.</li>
+        <li>The arm picks only the selected colour and places it, ignoring everything else.</li>
+        <li>A Gazebo digital twin runs alongside the physical arm.</li>
+        <li>A manual control GUI and conveyor control run through ROS 2.</li>
+      </ul>
+      <h2>How it is built</h2>
+      <dl class="stack">
+        <dt>Mechanical</dt><dd>An open SCARA design, adapted and 3D-printed; stepper motors and lead screws.</dd>
+        <dt>Firmware</dt><dd>Arduino with a CNC shield driving the steppers.</dd>
+        <dt>ROS 2</dt><dd>URDF from the Fusion 360 assembly, MoveIt 2 for planning, a C++ ros2_control hardware interface.</dd>
+        <dt>Perception</dt><dd>Fixed depth camera; OpenCV colour and depth detection.</dd>
+        <dt>Simulation</dt><dd>A Gazebo world that mirrors the physical cell.</dd>
+        <dt>Simulation only</dt><dd>Hand-gesture control (OpenCV + MediaPipe, Part 7) and voice control (speech-to-text, an LLM for task understanding, text-to-speech, MoveIt; Part 9).</dd>
+      </dl>
+      <h2>The hard part</h2>
+      <p>Moving from hardcoded coordinates to picking from live camera data. I first tried a camera mounted on the robot, then chose a fixed camera as the simpler and more reliable design. On hardware, the work was syncing the twin with the physical arm and validating each subsystem on its own (control GUI, conveyor, camera detection, hardware interface) before the full run.</p>
+      <div class="media-row">
+        <figure><div class="ph"><img src="../../assets/img/scara-card-480.webp" width="480" height="360" loading="lazy" alt="Gripper above the conveyor"></div><figcaption>Gripper over the conveyor</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/scara-hero-480.webp" width="480" height="600" loading="lazy" alt="The full SCARA cell"></div><figcaption>The full cell, Aug 2026</figcaption></figure>
+        <figure><div class="ph"><img src="../../assets/img/scara-twin-480.webp" width="480" height="600" loading="lazy" alt="SCARA arm with its digital twin shown in an inset"></div><figcaption>Arm and twin in sync</figcaption></figure>
+      </div>
+      <h2>Status and limits</h2>
+      <div class="limits"><ul>
+        <li>The mechanism is adapted from an open SCARA model, credited in Part 2. My work is the ROS 2 integration, simulation, planning, perception, conveyor cell, electronics and twin.</li>
+        <li>The steppers run without encoders, so closed-loop positioning is not shown.</li>
+        <li>Gesture and voice control were demonstrated in simulation only.</li>
+        <li>I haven't published a measured success rate.</li>
+      </ul></div>
+      <h2>Related</h2>
+      <p><a href="../../projects/manipulation/">Manipulation in simulation</a>, the arm work that came before this · the <a href="https://youtu.be/pVwVlfxJDlI" target="_blank" rel="noopener">3-DOF arm digital twin</a> · the <a href="https://www.mechamindlabs.com/courses/afaeef5a-5546-412d-b1c0-49f62331f021" target="_blank" rel="noopener">industrial robotic arm program</a> built on this cell (in preparation).</p>
+    </article>
+    <aside><dl><dt>Status</dt><dd>Hardware + digital twin</dd><dt>Dates</dt><dd>Part 1 posted 25 Jun 2026 · Part 25 on 20 Aug 2026</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/Curious-Utkarsh/scara-pick-and-place" target="_blank" rel="noopener">scara-pick-and-place</a></dd><dt>Build log</dt><dd><a class="chip" href="https://www.youtube.com/playlist?list=PLFVs4BXGHW84" target="_blank" rel="noopener">YouTube, 25 parts</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7475813895127916544/" target="_blank" rel="noopener">Part 1</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7496081661785411584/" target="_blank" rel="noopener">Part 25</a></dd><dt>Stack</dt><dd>ROS 2 · MoveIt 2 · ros2_control · Gazebo · OpenCV · Fusion 360 · Arduino</dd></dl></aside>
+  </div>
+  <div class="next-proj"><a href="../../#work">← All work</a><a href="../../projects/mechabot/">MechaBot →</a></div>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Kumar Utkarsh · Mumbai</span>
+    <span><a href="../../">Home</a> · <a href="mailto:kutkarsh706@gmail.com">kutkarsh706@gmail.com</a></span>
+  </div>
+</footer>
+</body>
+</html>
