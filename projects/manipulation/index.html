@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manipulation in simulation · Kumar Utkarsh</title>
-<meta name="description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and gesture-controlled pick-and-place on a UR5.">
+<meta name="description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and UR5 pick-and-place from the e-Yantra competition.">
 <link rel="canonical" href="https://curious-utkarsh.github.io/projects/manipulation/">
 <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Manipulation in simulation · Kumar Utkarsh">
-<meta property="og:description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and gesture-controlled pick-and-place on a UR5.">
+<meta property="og:description" content="ROS 2 arm projects in simulation: Franka Panda colour sorting, two Pandas playing tic-tac-toe, the Aura mobile manipulator and UR5 pick-and-place from the e-Yantra competition.">
 <meta property="og:url" content="https://curious-utkarsh.github.io/projects/manipulation/">
 <meta property="og:image" content="https://curious-utkarsh.github.io/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +47,7 @@
   <header class="case-head">
     <h1>Manipulation in simulation</h1>
     <div class="meta"><span class="status st-sim">Simulation</span><span class="dates">Jan 2025 – May 2026</span><span class="dates">· Solo project</span></div>
-    <p class="lede">These are simulation projects where I worked on perception and planning for arms: colour sorting with a Franka Panda, two Pandas playing tic-tac-toe, a mobile manipulator, and gesture control of a UR5. The SCARA build is where I took this onto real hardware.</p>
+    <p class="lede">These are simulation projects where I worked on perception and planning for arms: colour sorting with a Franka Panda, two Pandas playing tic-tac-toe, a mobile manipulator, and UR5 pick-and-place for the e-Yantra competition. The SCARA build is where I took this onto real hardware.</p>
   </header>
   <div class="case-grid">
     <article class="case">
@@ -79,16 +79,19 @@
       </ul>
       <p><a class="chip" href="https://youtu.be/NHeu9y64Ovw" target="_blank" rel="noopener">Video</a> <a class="chip" href="https://www.linkedin.com/feed/update/urn:li:activity:7286963156571013120/" target="_blank" rel="noopener">Post, Jan 2025</a></p>
 
-      <h2>UR5 gesture pick-and-place</h2>
-      <p class="dates">May 2026</p>
-      <ul>
-        <li>MediaPipe hand tracking drives a UR5 with a Robotiq gripper in Gazebo.</li>
-        <li>Limit: it sends joint targets directly to the trajectory controller, with no MoveIt planning loop.</li>
+      <h2>UR5 pick-and-place (e-Yantra)</h2>
+      <p class="dates">A task from e-Yantra, IIT Bombay's robotics competition · video published 16 Dec 2025</p>
+      <button class="facade h" type="button" data-facade="_vO71pkmfY4" aria-label="Play video: UR5 pick and place with ArUco markers"><img src="../../assets/img/ur5-eyantra-560.webp" width="560" height="420" alt="" loading="lazy" decoding="async"><span class="pb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="cap">UR5 pick and place · on YouTube · Kumar Utkarsh</span></button>
+      <ul style="margin-top:16px">
+        <li>Each box carries an ArUco marker; a fixed camera detects the markers with OpenCV to locate the boxes.</li>
+        <li>MoveIt plans the UR5's motion to each box, and an electromagnet end effector mounted on the arm picks it up and places it at its drop location.</li>
+        <li>Built and run in Gazebo simulation for the competition; it is not part of my public repositories.</li>
       </ul>
+      <p><a class="chip" href="https://youtu.be/_vO71pkmfY4" target="_blank" rel="noopener">Video · 16 Dec 2025</a></p>
       <h2>Next</h2>
       <p>The <a href="../../projects/scara/">SCARA cell</a> is where this work moved onto real hardware.</p>
     </article>
-    <aside><dl><dt>Status</dt><dd>Simulation (all four)</dd><dt>Dates</dt><dd>Jan 2025 – May 2026</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/MechaMind-Labs/franka-color-sorting-robot" target="_blank" rel="noopener">Franka sorting</a> <a class="chip" href="https://github.com/MechaMind-Labs/dual-franka-tic-tac-toe" target="_blank" rel="noopener">Tic-tac-toe</a> <a class="chip" href="https://github.com/Curious-Utkarsh/aura-mobile-manipulator" target="_blank" rel="noopener">Aura</a> <a class="chip" href="https://github.com/MechaMind-Labs/ur5-gesture-pick-and-place" target="_blank" rel="noopener">UR5 gesture</a></dd><dt>Stack</dt><dd>ROS 2 · MoveIt 2 · ros2_control · Gazebo · OpenCV · MediaPipe · Docker</dd></dl></aside>
+    <aside><dl><dt>Status</dt><dd>Simulation (all four)</dd><dt>Dates</dt><dd>Jan 2025 – May 2026</dd><dt>Code</dt><dd><a class="chip" href="https://github.com/MechaMind-Labs/franka-color-sorting-robot" target="_blank" rel="noopener">Franka sorting</a> <a class="chip" href="https://github.com/MechaMind-Labs/dual-franka-tic-tac-toe" target="_blank" rel="noopener">Tic-tac-toe</a> <a class="chip" href="https://github.com/Curious-Utkarsh/aura-mobile-manipulator" target="_blank" rel="noopener">Aura</a></dd><dt>Stack</dt><dd>ROS 2 · MoveIt 2 · ros2_control · Gazebo · OpenCV · Docker</dd></dl></aside>
   </div>
   <div class="next-proj"><a href="../../#work">← All work</a><a href="../../projects/scara/">SCARA →</a></div>
 </div>
