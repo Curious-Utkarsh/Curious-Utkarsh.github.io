@@ -1,13 +1,13 @@
 /* Kumar Utkarsh · portfolio · hand-written, no framework */
 
-@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(../fonts/newsreader-latin-wght-normal.woff2) format("woff2")}
-@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(../fonts/newsreader-latin-wght-italic.woff2) format("woff2")}
-@font-face{font-family:"Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Plex Sans";font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/ibm-plex-sans-latin-400-italic.woff2) format("woff2")}
-@font-face{font-family:"Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}
-@font-face{font-family:"Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:optional;src:url(../fonts/newsreader-latin-wght-normal.woff2) format("woff2")}
+@font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:optional;src:url(../fonts/newsreader-latin-wght-italic.woff2) format("woff2")}
+@font-face{font-family:"Plex Sans";font-style:normal;font-weight:400;font-display:optional;src:url(../fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Plex Sans";font-style:italic;font-weight:400;font-display:optional;src:url(../fonts/ibm-plex-sans-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Plex Sans";font-style:normal;font-weight:500;font-display:optional;src:url(../fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Plex Sans";font-style:normal;font-weight:600;font-display:optional;src:url(../fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Plex Mono";font-style:normal;font-weight:400;font-display:optional;src:url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Plex Mono";font-style:normal;font-weight:500;font-display:optional;src:url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
 
 :root{
   --bg:#f4f2ec; --surface:#fbfaf6; --sunk:#ebe8e0;
@@ -224,7 +224,7 @@ details.more .inner{padding:4px 16px 16px;border-top:1px solid var(--line)}
 
 .rows{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,2fr) 190px;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
-.row h4{font-size:1.06rem}
+.row h4,.row h3.h4{font-size:1.06rem}
 .row .meta{display:flex;flex-direction:column;gap:7px;align-items:flex-start;margin-top:8px}
 .row p{margin:0;color:var(--ink-2);font-size:.95rem}
 .row .chips{margin:0;justify-content:flex-end;flex-wrap:wrap;gap:6px 12px}
