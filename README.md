@@ -11,7 +11,6 @@ GitHub Pages serves this repository from `main`, root folder (`.nojekyll` turns 
 ```
 index.html                 home page (all sections)
 projects/<slug>/index.html case studies: scara, mechabot, mobi, manipulation
-cv/index.html              CV page (final PDF to be added as cv/Kumar_Utkarsh_CV.pdf)
 404.html                   not-found page
 assets/css/site.css        design tokens (light + dark), layout, components
 assets/js/site.js          theme toggle, nav, video dialog, YouTube click-to-play
@@ -25,5 +24,3 @@ assets/img/                photos and video stills (WebP), og.jpg for link previ
   (WEBSITE_BUILD_BRIEF.md, drafts/portfolio-spec.md). Change the facts there first.
 - Every claim on the site links to a public source. No unverified numbers.
 - Videos (YouTube and the MechaMind Labs website) load only when a visitor presses play.
-- To add the CV: upload the PDF to `cv/` and replace the "Request the CV" button with a
-  download link.
