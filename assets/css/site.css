@@ -204,7 +204,7 @@ details.more .inner{padding:4px 16px 16px;border-top:1px solid var(--line)}
 .course-list li{display:flex;justify-content:space-between;gap:16px;font-size:.93rem;color:var(--ink-2);padding-bottom:8px;border-bottom:1px dashed var(--line)}
 .course-list li:last-child{border-bottom:0}
 .course-list span{color:var(--muted);font-size:.84rem;white-space:nowrap}
-@media (max-width:560px){.course-list li{flex-direction:column;gap:0}}
+@media (max-width:560px){.course-list li{flex-direction:column;gap:0}.course-list span{white-space:normal}}
 
 /* ---------- project cards ---------- */
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
