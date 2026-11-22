@@ -435,14 +435,31 @@ table.ws td .chip{margin:0 6px 6px 0}
 .q footer{font-size:.84rem;color:var(--muted);line-height:1.4;padding-top:12px;border-top:1px dashed var(--line)}
 .q footer b{color:var(--ink);font-weight:500;display:block;font-size:.92rem}
 .src-label{font:500 .64rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:9px;display:block}
-.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.vt{position:relative;display:flex;gap:14px;align-items:center;text-align:left;padding:18px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);cursor:pointer;font:inherit;color:inherit;width:100%;overflow:hidden;transition:border-color .3s,transform .5s var(--ease-out),box-shadow .5s var(--ease-out)}
-.vt:hover{border-color:var(--line-2);transform:translateY(-3px);box-shadow:var(--shadow)}
-.vt:hover .play{background:var(--signal);color:#fff;border-color:var(--signal);transform:scale(1.1)}
-.vt .n{font-weight:500;color:var(--ink);font-size:.98rem;display:block}
-.vt .d{font-size:.82rem;color:var(--muted);display:block;line-height:1.45;margin-top:2px}
+/* Learners on video: poster cards, quote over the frame, video loads on play */
+.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vt{position:relative;display:block;aspect-ratio:4/5;padding:0;text-align:left;border:1px solid var(--line);border-radius:var(--r-lg);background:#0b0d10;cursor:pointer;font:inherit;color:#fff;width:100%;overflow:hidden;isolation:isolate;box-shadow:var(--shadow);transition:border-color .3s,transform .6s var(--ease-out),box-shadow .6s var(--ease-out)}
+.vt-media{position:absolute;inset:0;z-index:0}
+.vt-media img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.02);transition:transform 1.4s var(--ease-out),filter .6s}
+.vt-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,9,0) 30%,rgba(6,7,9,.55) 58%,rgba(6,7,9,.92) 100%);transition:opacity .5s}
+.vt .play{position:absolute;z-index:2;right:16px;top:16px;width:46px;height:46px;border:0;background:rgba(255,255,255,.92);color:#0b0d10;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.vt .play::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(255,255,255,.5);animation:ring 2.6s var(--ease) infinite}
+.vt-body{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:20px 20px 18px;display:block;transform:translateY(4px);transition:transform .6s var(--ease-out)}
+.vt-body::before{content:"";display:block;width:28px;height:2px;margin-bottom:12px;background:var(--signal);transform-origin:0 50%;transition:transform .6s var(--ease-out)}
+.vt .n{font-family:var(--serif);font-weight:500;color:#fff;font-size:1.22rem;line-height:1.2;display:block}
+.vt .d{font-size:.86rem;color:rgba(255,255,255,.82);display:block;line-height:1.5;margin-top:6px}
+.vt:hover{border-color:var(--line-2);transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.vt:hover .vt-media img{transform:scale(1.08)}
+.vt:hover .vt-body{transform:none}
+.vt:hover .vt-body::before{transform:scaleX(2.2)}
+.vt:hover .play{background:var(--signal);color:#fff;transform:scale(1.1)}
+.vt:focus-visible{outline-offset:4px}
+.js .vt-grid .vt{opacity:0;transform:translateY(24px)}
+.js .vt-grid.in .vt{opacity:1;transform:none;transition:opacity .9s var(--ease-out),transform .9s var(--ease-out),border-color .3s,box-shadow .6s var(--ease-out)}
+.js .vt-grid.in .vt:hover{transform:translateY(-6px)}
+.vt-grid.in .vt:nth-child(3n+2){transition-delay:.08s}.vt-grid.in .vt:nth-child(3n){transition-delay:.16s}
+.js .vt-grid.in .vt:hover{transition-delay:0s}
 @media (max-width:900px){.vt-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.vt-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.vt-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--gutter));padding:4px var(--gutter) 14px;scrollbar-width:thin}.vt{flex:0 0 74%;scroll-snap-align:start}}
 .yt-quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .yt-quotes .yq{padding:20px 22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);position:relative;transition:border-color .3s,transform .5s var(--ease-out)}
 .yt-quotes .yq::before{content:"";position:absolute;left:22px;top:-1px;width:36px;height:2px;background:#e0412f;opacity:.85}
@@ -578,11 +595,11 @@ dialog.player::backdrop{background:rgba(6,7,9,.84);backdrop-filter:blur(6px)}
 @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
-  .js .reveal,.js .hero h1 .w,.js .hero .eyebrow,.js .hero .lede,.js .hero .btns,.js .hero-media figure,.js .hero-media .float,.js .glance .cell,.js .showcase .sc,.js .modules li,.js .values span{opacity:1!important;transform:none!important;filter:none!important}
+  .js .reveal,.js .hero h1 .w,.js .hero .eyebrow,.js .hero .lede,.js .hero .btns,.js .hero-media figure,.js .hero-media .float,.js .glance .cell,.js .showcase .sc,.js .vt-grid .vt,.js .modules li,.js .values span{opacity:1!important;transform:none!important;filter:none!important}
   .js .hero-media .float{opacity:.9!important}
   .js .next p{opacity:1}
   .story::after{transform:scaleY(1)}
 }
-@media print{.nav,.icon-btn,dialog,.hero-bg,.float,.sec-head::after{display:none!important}body::before{display:none}.section{padding-top:32px}.js .reveal,.js .hero *,.js .showcase .sc,.js .glance .cell,.js .modules li,.js .values span,.js .next p{opacity:1!important;transform:none!important;filter:none!important}}
+@media print{.nav,.icon-btn,dialog,.hero-bg,.float,.sec-head::after{display:none!important}body::before{display:none}.section{padding-top:32px}.js .reveal,.js .hero *,.js .showcase .sc,.js .vt-grid .vt,.js .glance .cell,.js .modules li,.js .values span,.js .next p{opacity:1!important;transform:none!important;filter:none!important}}
 @media (max-width:640px){.sub{flex-direction:column;align-items:flex-start;gap:6px}.sub .label{white-space:normal}}
 @media (max-width:640px){.hero .eyebrow{gap:6px}.profile .portrait{max-width:240px}}
