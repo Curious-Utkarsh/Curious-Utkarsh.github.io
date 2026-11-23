@@ -94,7 +94,7 @@
     });
 
     /* pointer spotlight on cards, and tilt on project cards */
-    var spots = document.querySelectorAll('.out, .q, .way, .collab .c, .else a, .notes a.n, .vt, .proj');
+    var spots = document.querySelectorAll('.out, .q, .way, .collab .c, .else a, .notes a.n, .vt, .li, .proj');
     spots.forEach(function (c) { c.classList.add('spot'); });
     if (fine && !reduce) {
       spots.forEach(function (c) {
