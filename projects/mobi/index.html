@@ -76,7 +76,7 @@
       <p><strong>A distorted SLAM map.</strong> I <a href="https://www.linkedin.com/feed/update/urn:li:activity:7313719472240869376/" target="_blank" rel="noopener">asked the community</a>, then fixed flipped encoder readings, halved the encoder count, corrected the LiDAR orientation in the URDF, and posted the fix.</p>
       <h2>Status and limits</h2>
       <div class="limits"><ul>
-        <li>On the real robot, costmaps didn't clear after obstacles moved. I disabled obstacle detection in the local controller to keep it moving and said so at the time: "Now it moves, but yeah — that's not a proper solution."</li>
+        <li>On the real robot, costmaps didn't clear after obstacles moved. I fixed it by enabling ray tracing and increasing the obstacle sensing distance, which helped the costmap clear.</li>
         <li>The arms were planned, not built. I didn't get all the way to the service robot I set out to make.</li>
       </ul></div>
       <h2>Build log</h2>
